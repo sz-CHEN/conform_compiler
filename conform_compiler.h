@@ -261,6 +261,14 @@
 #endif
 #endif
 
+#ifndef FORCE_FOO_INLINE
+#ifdef _MSC_VER
+#define FORCE_FOO_INLINE __forceinline
+#else
+#define FORCE_FOO_INLINE __attribute__((always_inline))
+#endif
+#endif
+
 #ifdef __GNUC__
 #undef GCC_VERSION
 #pragma pop_macro("GCC_VERSION")

@@ -22,7 +22,7 @@
 /* #endif */
 #endif
 
-#define uniform_compiler_CONCAT_AS_STR(a, b) #a #b
+#define UNIFORM_COMPILER_CONCAT_AS_STR(a, b) #a #b
 
 #if !defined(__STDC_VERSION__)
 #define __STDC_VERSION__ 198912L
@@ -125,7 +125,7 @@
 #if defined(__cplusplus)
 #if __cplusplus >= STDCPP11
 #define STATIC_ASSERT(n, ...)                                                  \
-    static_assert(n, uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))
+    static_assert(n, UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))
 #endif
 #else
 #if __STDC_VERSION__ > STDC17
@@ -148,22 +148,22 @@
 #ifdef __cplusplus
 #if __cplusplus >= STDCPP14
 #define DEPRECATED(...)                                                        \
-    [[deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[deprecated(UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
 #endif
 #else
 #if __STDC_VESRION__ > STDC17
 #define DEPRECATED(...)                                                        \
-    [[deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[deprecated(UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
 #endif
 #endif
 
 #ifndef DEPRECATED
 #ifdef _MSC_VER
 #define DEPRECATED(...)                                                        \
-    __declspec(deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__)))
+    __declspec(deprecated(UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__)))
 #else
 #define DEPRECATED(...)                                                        \
-    __attribute__((deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))))
+    __attribute__((deprecated(UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))))
 #endif
 #endif
 
@@ -206,14 +206,14 @@
 #ifdef __cplusplus
 #if __cplusplus >= STDCPP20
 #define NODISCARD_RESULT(...)                                                  \
-    [[nodiscard(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[nodiscard(UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
 #elif __cplusplus >= STDCPP17
 #define NODISCARD_RESULT(...) [[nodiscard]]
 #endif
 #else
 #if __STDC_VESRION__ > STDC17
 #define NODISCARD_RESULT(...)                                                  \
-    [[nodiscard(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[nodiscard(UNIFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
 #endif
 #endif
 

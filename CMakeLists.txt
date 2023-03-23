@@ -6,8 +6,11 @@ set(CMAKE_C_STANDARD_REQUIRED on)
 set(CMAKE_CXX_STANDARD_REQUIRED on)
 
 if(MSVC) 
-add_compile_options(/Zc:__cplusplus /analyze)
+add_compile_options(/Zc:__cplusplus /analyze /W4)
+else()
+add_compile_options(-Wall)
 endif()
+
 
 file(GLOB CSRCFILE *.c)
 file(GLOB CPPSRCFILE *.cpp)

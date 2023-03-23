@@ -2,12 +2,12 @@
 
 ALIGNAS(8) char alignas_buf[10];
 
-ALIGNAS(1) int alignas_int;
-ALIGNAS(1) struct alignas_struct_a {
+ALIGNAS(32) int alignas_int;
+ALIGNAS(8) struct alignas_struct_a {
     ALIGNAS(4) char a;
 } alignasA;
 
-ALIGNAS(1) struct alignas_struct_b {
+ALIGNAS(32) struct alignas_struct_b {
     char a;
-    ALIGNAS(1) int b;
+    ALIGNAS(32) int b;
 } alignasB;

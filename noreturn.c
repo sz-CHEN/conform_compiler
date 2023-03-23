@@ -1,4 +1,4 @@
-#include "conform_compiler.h"
+#include "uniform_compiler.h"
 
 FOO_NORETURN int noreturn_foo() {
     while (1) {

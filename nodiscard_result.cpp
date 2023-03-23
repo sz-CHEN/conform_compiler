@@ -1,4 +1,4 @@
-#include "conform_compiler.h"
+#include "uniform_compiler.h"
 struct B {
     int b;
 };

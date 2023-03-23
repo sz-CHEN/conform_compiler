@@ -1,5 +1,5 @@
 /**
- * @file conform_compiler.h
+ * @file uniform_compiler.h
  * @author (csz@whu.edu.cn)
  * @brief
  * @version 0.1
@@ -9,8 +9,8 @@
  *
  */
 
-#ifndef CONFORM_COMPILER_H
-#define CONFORM_COMPILER_H
+#ifndef UNIFORM_COMPILER_H
+#define UNIFORM_COMPILER_H
 
 #ifdef __GNUC__
 #pragma push_macro("GCC_VERSION")
@@ -22,7 +22,7 @@
 /* #endif */
 #endif
 
-#define CONFORM_COMPILER_CONCAT_AS_STR(a, b) #a #b
+#define uniform_compiler_CONCAT_AS_STR(a, b) #a #b
 
 #if !defined(__STDC_VERSION__)
 #define __STDC_VERSION__ 198912L
@@ -125,7 +125,7 @@
 #if defined(__cplusplus)
 #if __cplusplus >= STDCPP11
 #define STATIC_ASSERT(n, ...)                                                  \
-    static_assert(n, CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))
+    static_assert(n, uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))
 #endif
 #else
 #if __STDC_VERSION__ > STDC17
@@ -148,22 +148,22 @@
 #ifdef __cplusplus
 #if __cplusplus >= STDCPP14
 #define DEPRECATED(...)                                                        \
-    [[deprecated(CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
 #endif
 #else
 #if __STDC_VESRION__ > STDC17
 #define DEPRECATED(...)                                                        \
-    [[deprecated(CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
 #endif
 #endif
 
 #ifndef DEPRECATED
 #ifdef _MSC_VER
 #define DEPRECATED(...)                                                        \
-    __declspec(deprecated(CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__)))
+    __declspec(deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__)))
 #else
 #define DEPRECATED(...)                                                        \
-    __attribute__((deprecated(CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))))
+    __attribute__((deprecated(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))))
 #endif
 #endif
 
@@ -206,14 +206,14 @@
 #ifdef __cplusplus
 #if __cplusplus >= STDCPP20
 #define NODISCARD_RESULT(...)                                                  \
-    [[nodiscard(CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[nodiscard(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
 #elif __cplusplus >= STDCPP17
 #define NODISCARD_RESULT(...) [[nodiscard]]
 #endif
 #else
 #if __STDC_VESRION__ > STDC17
 #define NODISCARD_RESULT(...)                                                  \
-    [[nodiscard(CONFORM_COMPILER_CONCAT_AS_STR(, __VA_ARGS__))]]
+    [[nodiscard(uniform_compiler_CONCAT_AS_STR(, __VA_ARGS__))]]
 #endif
 #endif
 

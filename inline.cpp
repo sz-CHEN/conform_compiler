@@ -1,4 +1,4 @@
-#include "conform_compiler.h"
+#include "uniform_compiler.h"
 
 FOO_INLINE int inline_foo_a() { return 0; }
 

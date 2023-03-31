@@ -271,6 +271,29 @@
 #    endif
 #endif
 
+#ifdef __cplusplus
+#    if __cplusplus >= STDCPP11
+#        define PRAGMA(...) _Pragma(#__VA_ARGS__)
+#    endif
+#else
+#    if __STDC_VERSION__ >= STDC99
+#        define PRAGMA(...) _Pragma(#__VA_ARGS__)
+#    endif
+#endif
+
+#ifndef PRAGMA
+#    ifdef _MSC_VER
+#        define PRAGMA(...) __pragma(__VA_ARGS__)
+#    else
+#        define PRAGMA(...) _Pragma(#__VA_ARGS__)
+#    endif
+#endif
+
+#define PACK_SECTION(align, ...)                                               \
+    PRAGMA(pack(push, align)) __VA_ARGS__ PRAGMA(pack(pop))
+
+#define PACKED_SECTION(...) PRAGMA(pack(push, 1)) __VA_ARGS__ PRAGMA(pack(pop))
+
 #ifdef __GNUC__
 #    undef GCC_VERSION
 #    pragma pop_macro("GCC_VERSION")
